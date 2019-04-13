@@ -3,6 +3,8 @@ import 'package:vasitionary/main.dart';
 import 'package:vasitionary/helper/constants.dart';
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:vasitionary/model/dictionary_word_list.dart';
+import 'package:vasitionary/view/navigation_animation.dart';
+import 'package:vasitionary/view/view_word_meaning.dart';
 
 class HomePage extends State<MyHomePage> {
   final TextEditingController _textController = new TextEditingController();
@@ -12,6 +14,7 @@ class HomePage extends State<MyHomePage> {
   @override
   void initState() {
     _loadData();
+    _clearTextData();
     super.initState();
   }
 
@@ -36,6 +39,11 @@ class HomePage extends State<MyHomePage> {
                             child: searchTextField =
                                 AutoCompleteTextField<WordList>(
                               key: key,
+                              clearOnSubmit: true,
+                              itemSubmitted: (item) {
+                                setState(() => searchTextField
+                                    .textField.controller.text = "");
+                              },
                               textInputAction: TextInputAction.search,
                               style: new TextStyle(
                                   fontSize: FONT_SIZE_REGULAR_20,
@@ -50,19 +58,52 @@ class HomePage extends State<MyHomePage> {
                                       Icons.search,
                                       color: COLOR_APPBAR,
                                     ), // icon is 48px widget.
-                                  )),
-
+                                  ),
+                                  /*suffixIcon: Padding(
+                                    padding: EdgeInsets.all(0.0),
+                                    child: IconButton(
+                                      icon: IconButton(
+                                        icon: Icon(Icons.clear),
+                                        disabledColor: COLOR_DISABLED,
+                                        highlightColor: COLOR_ENABLED,
+                                        onPressed: () {
+                                          _textController.clear();
+                                        },
+                                      ),
+                                      onPressed: () {
+                                        _textController.clear();
+                                      },
+                                    ), // icon is 48px widget.
+                                  ),*/
+                                  hintText: HINT_SEARCH_TEXT,
+                                  hintStyle: TextStyle(
+                                      fontSize: FONT_SIZE_REGULAR_20)),
                               itemBuilder: (context, item) {
                                 return Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
-                                    Text(
-                                      item.word,
-                                      style: TextStyle(
-                                          fontSize: FONT_SIZE_REGULAR_20,
-                                          color: COLOR_BLACK,
-                                          decorationColor: COLOR_APPBAR),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.all(PADDING_REGULAR_10),
+                                      child: new InkWell(
+                                        child: Text(
+                                          item.word,
+                                          style: TextStyle(
+                                              fontSize: FONT_SIZE_REGULAR_20,
+                                              color: COLOR_APPBAR,
+                                              decorationColor: COLOR_APPBAR),
+                                        ),
+                                        onTap: () {
+                                          print("Selected");
+                                          _sendDataToMeaningScreen(
+                                              context,
+                                              item.word,
+                                              item.meaning,
+                                              item.audio,
+                                              item.video);
+                                        },
+                                      ),
                                     ),
                                   ],
                                 );
@@ -75,10 +116,10 @@ class HomePage extends State<MyHomePage> {
                               itemSorter: (a, b) {
                                 return a.word.compareTo(b.word);
                               },
-                              itemSubmitted: (item) {
+                              /*itemSubmitted: (item) {
                                 setState(() => searchTextField
                                     .textField.controller.text = item.word);
-                              },
+                              },*/
                               suggestions: DictionaryWordList.wordList,
 
                               /*TextFormField(
@@ -299,6 +340,25 @@ class HomePage extends State<MyHomePage> {
         ),
       ),
     );
+  }
+
+  void _sendDataToMeaningScreen(BuildContext context, String selectedWord,
+      String wordMeaning, String wordAudio, String wordVideo) {
+    Navigator.push(
+      context,
+      new MyCustomRoute(
+        builder: (context) => ViewMeaning(
+              video: wordVideo,
+              audio: wordAudio,
+              meaning: wordMeaning,
+              word: wordMeaning,
+            ),
+      ),
+    );
+  }
+
+  void _clearTextData() {
+    _textController.clear();
   }
 }
 
