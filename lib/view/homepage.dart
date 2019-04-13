@@ -5,6 +5,7 @@ import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:vasitionary/model/dictionary_word_list.dart';
 import 'package:vasitionary/view/navigation_animation.dart';
 import 'package:vasitionary/view/view_word_meaning.dart';
+import 'package:share/share.dart';
 
 class HomePage extends State<MyHomePage> {
   final TextEditingController _textController = new TextEditingController();
@@ -291,6 +292,7 @@ class HomePage extends State<MyHomePage> {
               new InkWell(
                   onTap: () {
                     print("Playstore tapped");
+                    Share.share('check out my website https://iamnagaraj.com');
                   },
                   child: new Card(
                       child: new Padding(
@@ -315,6 +317,7 @@ class HomePage extends State<MyHomePage> {
               new InkWell(
                   onTap: () {
                     print("Share tapped");
+                    Share.share('check out my website https://iamnagaraj.com');
                   },
                   child: new Card(
                       child: new Padding(

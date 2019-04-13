@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       theme: ThemeData(
           textSelectionColor: COLOR_APPBAR, cursorColor: COLOR_APPBAR),
+      debugShowCheckedModeBanner: false,
       title: TITLE_MAIN_PAGE,
       home: MyHomePage(),
     );
