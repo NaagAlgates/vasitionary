@@ -1,0 +1,34 @@
+{
+    "wordList": [
+        {
+          "word": "Word1",
+          "meaning":"Sentra",
+          "audio":"Maxima",
+          "video":"Skyline"
+        },
+        {
+          "word": "Word2",
+          "meaning":"Sentra2",
+          "audio":"Maxima2",
+          "video":"Skyline2"
+        },
+        {
+          "word": "Word3",
+          "meaning":"Sentra3",
+          "audio":"Maxima3",
+          "video":"Skyline3"
+        },
+        {
+          "word": "Word4",
+          "meaning":"Sentra4",
+          "audio":"Maxima4",
+          "video":"Skyline4"
+        },
+        {
+          "word": "Word5",
+          "meaning":"Sentra5",
+          "audio":"Maxima5",
+          "video":"Skyline5"
+        }
+    ]
+}
