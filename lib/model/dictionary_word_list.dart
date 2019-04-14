@@ -5,8 +5,16 @@ import 'package:flutter/services.dart';
 class DictionaryWordList {
   static List<WordList> wordList;
 
-  String getCount() {
-    return "ClassPojo [wordlistCount = " + wordList.length.toString() + "]";
+  static int getCount() {
+    return wordList.toList().length;
+  }
+
+  static String getWordByIndex(int index){
+    return wordList[index].word.toString();
+  }
+
+  static String getMeaningByIndex(int index){
+    return wordList[index].meaning.toString();
   }
 
   static Future loadPlayers() async {
@@ -86,4 +94,5 @@ class WordList
         word: parsedJson['word']
     );
   }
+
 }
