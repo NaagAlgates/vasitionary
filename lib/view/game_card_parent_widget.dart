@@ -22,11 +22,12 @@ class GameCardParent extends State<GameCardParentWidget> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(PADDING_REGULAR_10),
         ),
-        elevation: 5,
+        elevation: 10,
         margin: EdgeInsets.all(PADDING_REGULAR_15),
         color: Colors.white,
         child: Container(
             decoration: BoxDecoration(
+              borderRadius: new BorderRadius.circular(PADDING_REGULAR_10),
               image: DecorationImage(
                 image: AssetImage("assets/images/gamecard_background.jpg"),
                 fit: BoxFit.fill,
@@ -61,7 +62,7 @@ class GameCardParent extends State<GameCardParentWidget> {
                           DISPLAY_MENU_2_DESCRIPTION,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: COLOR_APPBAR,
+                            color: Colors.amberAccent,
                             fontSize: FONT_SIZE_REGULAR_15,
                           ),
                         ),
