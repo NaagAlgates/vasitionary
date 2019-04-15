@@ -26,14 +26,15 @@ const Color COLOR_DISABLED=Colors.grey;
 Color COLOR_ENABLED=COLOR_APPBAR;
 const Color COLOR_WHITE = Colors.white;
 const Color COLOR_BLACK = Colors.black;
+Color APP_COLOR_GREEN =  HexColor("#64A03C");
 
 Color R1C1 = HexColor("#FC0300");
 Color R1C2 = HexColor("#FFAF02");
 Color R1C3 = HexColor("#FC0300");
 
-Color R2C1 = HexColor("#9A0098");
+Color R2C1 = COLOR_APPBAR;
 Color R2C2 = HexColor("#011B66");
-Color R2C3 = HexColor("#9A0098");
+Color R2C3 = COLOR_APPBAR;
 
 Color R3C1 = HexColor("#FFAF02");
 Color R3C2 = HexColor("#FC0300");

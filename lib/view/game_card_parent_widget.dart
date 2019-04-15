@@ -22,8 +22,8 @@ class GameCardParent extends State<GameCardParentWidget> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(PADDING_REGULAR_10),
         ),
-        elevation: 10,
-        margin: EdgeInsets.all(PADDING_REGULAR_15),
+        elevation: PADDING_REGULAR_10,
+        margin: EdgeInsets.all(PADDING_REGULAR_10),
         color: Colors.white,
         child: Container(
             decoration: BoxDecoration(
@@ -36,7 +36,7 @@ class GameCardParent extends State<GameCardParentWidget> {
             ),
             child: Column(children: <Widget>[
               new Padding(
-                padding: const EdgeInsets.only(left: 70.0,right: 70.0,bottom: 10.0),
+                padding: const EdgeInsets.only(left: 70.0,right: 70.0,bottom: PADDING_REGULAR_10),
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
@@ -69,16 +69,13 @@ class GameCardParent extends State<GameCardParentWidget> {
                       ),
                     ),
                     new GameCardWidget(),
-                    new SizedBox(
-                      width: double.infinity,
-                      child: new RaisedButton(
-                        onPressed: searchForPossibleWords,
-                        textColor: Colors.white,
-                        color: COLOR_APPBAR,
-                        padding: const EdgeInsets.all(PADDING_REGULAR_10),
-                        child: new Text(
-                          BTN_CREATE_TEXT,
-                        ),
+                    new RaisedButton(
+                      onPressed: searchForPossibleWords,
+                      textColor: Colors.white,
+                      color: APP_COLOR_GREEN,
+                      padding: const EdgeInsets.all(PADDING_REGULAR_10),
+                      child: new Text(
+                        BTN_CREATE_TEXT,
                       ),
                     ),
                   ],
