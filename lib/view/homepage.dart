@@ -12,30 +12,37 @@ import 'package:share/share.dart';
 import 'dart:math';
 
 bool isDataLoading = false;
+
 class HomePage extends State<MyHomePage> {
-  String selectedWord="Testing";
-  String selectedWordMeaning="This is testing meaning";
+  String selectedWord = "Testing";
+  String selectedWordMeaning = "This is testing meaning";
   final TextEditingController _textController = new TextEditingController();
+
   @override
   void initState() {
     super.initState();
-    isDataLoading=true;
+    isDataLoading = true;
     _loadData();
     _clearTextData();
   }
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(APPLICATION_NAME),
-        backgroundColor: COLOR_APPBAR,
-      ),
-      body: _buildBody(),
+    return new Container(
+      decoration: BoxDecoration(
+          image: new DecorationImage(
+              image: new AssetImage("assets/images/app_background.jpg"),
+              fit: BoxFit.cover)),
+      child: new Scaffold(
+        backgroundColor: Colors.transparent,
+          appBar: new AppBar(
+            title: new Text(APPLICATION_NAME),
+            backgroundColor: COLOR_APPBAR,
+          ),
+          body: _buildBody(),
+          ),
     );
   }
-
-
 
   void _clearTextData() {
     _textController.clear();
@@ -53,17 +60,19 @@ class HomePage extends State<MyHomePage> {
     _dataLoaded();
     //getWordIndex();
   }
+
   getWordIndex() async {
     /*SharedPreferences prefs = await SharedPreferences.getInstance();
     int counter = (prefs.getInt(PREF_WORD_INDEX) ?? 0);
     print('Pressed $counter times.');*/
     int counter = getWordOfTheDayIndex() as int;
-    print ('$counter times');
+    print('$counter times');
   }
 }
-int _loadWordAndMeaning(int totalWordCount){
-  print (totalWordCount);
-  if(totalWordCount>0) {
+
+int _loadWordAndMeaning(int totalWordCount) {
+  print(totalWordCount);
+  if (totalWordCount > 0) {
     Random rnd;
     int min = 1;
     int max = totalWordCount;
@@ -84,10 +93,17 @@ Widget _buildBody() {
     int index = _loadWordAndMeaning(DictionaryWordList.getCount());
     GlobalKey<AutoCompleteTextFieldState<WordList>> key = new GlobalKey();
     AutoCompleteTextField searchTextField;
-    return new SingleChildScrollView(
-      child: new Container(
-        decoration: new BoxDecoration(color: COLOR_APPBAR),
+    return new Container(
+      decoration: new BoxDecoration(
+        color: COLOR_APPBAR,
+        image: new DecorationImage(
+          image: new AssetImage("assets/images/app_background.jpg"),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: new SingleChildScrollView(
         child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             new Card(
                 child: new Padding(
@@ -97,25 +113,25 @@ Widget _buildBody() {
                         new Expanded(
                           child: searchTextField =
                               AutoCompleteTextField<WordList>(
-                                key: key,
-                                clearOnSubmit: true,
-                                itemSubmitted: (item) {},
-                                textInputAction: TextInputAction.search,
-                                style: new TextStyle(
-                                    fontSize: FONT_SIZE_REGULAR_20,
-                                    color: COLOR_BLACK,
-                                    decorationColor: COLOR_APPBAR),
-                                decoration: new InputDecoration(
-                                    contentPadding:
+                            key: key,
+                            clearOnSubmit: true,
+                            itemSubmitted: (item) {},
+                            textInputAction: TextInputAction.search,
+                            style: new TextStyle(
+                                fontSize: FONT_SIZE_REGULAR_20,
+                                color: COLOR_BLACK,
+                                decorationColor: COLOR_APPBAR),
+                            decoration: new InputDecoration(
+                                contentPadding:
                                     EdgeInsets.all(PADDING_REGULAR_10),
-                                    prefixIcon: Padding(
-                                      padding: EdgeInsets.all(0.0),
-                                      child: Icon(
-                                        Icons.search,
-                                        color: COLOR_APPBAR,
-                                      ), // icon is 48px widget.
-                                    ),
-                                    /*suffixIcon: Padding(
+                                prefixIcon: Padding(
+                                  padding: EdgeInsets.all(0.0),
+                                  child: Icon(
+                                    Icons.search,
+                                    color: COLOR_APPBAR,
+                                  ), // icon is 48px widget.
+                                ),
+                                /*suffixIcon: Padding(
                                     padding: EdgeInsets.all(0.0),
                                     child: IconButton(
                                       icon: IconButton(
@@ -131,54 +147,53 @@ Widget _buildBody() {
                                       },
                                     ), // icon is 48px widget.
                                   ),*/
-                                    hintText: HINT_SEARCH_TEXT,
-                                    hintStyle: TextStyle(
-                                        fontSize: FONT_SIZE_REGULAR_20)),
-                                itemBuilder: (context, item) {
-                                  return Row(
-                                    mainAxisAlignment:
+                                hintText: HINT_SEARCH_TEXT,
+                                hintStyle:
+                                    TextStyle(fontSize: FONT_SIZE_REGULAR_20)),
+                            itemBuilder: (context, item) {
+                              return Row(
+                                mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Padding(
-                                        padding:
-                                        EdgeInsets.all(PADDING_REGULAR_10),
-                                        child: new InkWell(
-                                          child: Text(
-                                            item.word,
-                                            style: TextStyle(
-                                                fontSize: FONT_SIZE_REGULAR_20,
-                                                color: COLOR_APPBAR,
-                                                decorationColor: COLOR_APPBAR),
-                                          ),
-                                          onTap: () {
-                                            print("Selected");
-                                            _sendDataToMeaningScreen(
-                                                context,
-                                                item.word,
-                                                item.meaning,
-                                                item.audio,
-                                                item.video);
-                                          },
-                                        ),
+                                children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.all(PADDING_REGULAR_10),
+                                    child: new InkWell(
+                                      child: Text(
+                                        item.word,
+                                        style: TextStyle(
+                                            fontSize: FONT_SIZE_REGULAR_20,
+                                            color: COLOR_APPBAR,
+                                            decorationColor: COLOR_APPBAR),
                                       ),
-                                    ],
-                                  );
-                                },
-                                itemFilter: (item, query) {
-                                  return item.word
-                                      .toLowerCase()
-                                      .startsWith(query.toLowerCase());
-                                },
-                                itemSorter: (a, b) {
-                                  return a.word.compareTo(b.word);
-                                },
-                                /*itemSubmitted: (item) {
+                                      onTap: () {
+                                        print("Selected");
+                                        _sendDataToMeaningScreen(
+                                            context,
+                                            item.word,
+                                            item.meaning,
+                                            item.audio,
+                                            item.video);
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                            itemFilter: (item, query) {
+                              return item.word
+                                  .toLowerCase()
+                                  .startsWith(query.toLowerCase());
+                            },
+                            itemSorter: (a, b) {
+                              return a.word.compareTo(b.word);
+                            },
+                            /*itemSubmitted: (item) {
                                 setState(() => searchTextField
                                     .textField.controller.text = item.word);
                               },*/
-                                suggestions: DictionaryWordList.wordList,
+                            suggestions: DictionaryWordList.wordList,
 
-                                /*TextFormField(
+                            /*TextFormField(
                               autofocus: false,
                               autocorrect: false,
                               autovalidate: false,
@@ -235,12 +250,20 @@ Widget _buildBody() {
                                   hintStyle: TextStyle(
                                       fontSize: FONT_SIZE_REGULAR_20)),
                             ),*/
-                              ),
+                          ),
                         )
                       ],
                     ))), //Search text
-            new HomePageCardView(word: DictionaryWordList.getWordByIndex(index), wordMeaning: DictionaryWordList.getMeaningByIndex(index),cardTitle: DISPLAY_2ND_COLUMN_HEADING,),
-            new HomePageCardView(word: DictionaryWordList.getWordByIndex(133), wordMeaning: DictionaryWordList.getMeaningByIndex(133),cardTitle: DISPLAY_3RD_COLUMN,),
+            new HomePageCardView(
+              word: DictionaryWordList.getWordByIndex(index),
+              wordMeaning: DictionaryWordList.getMeaningByIndex(index),
+              cardTitle: DISPLAY_2ND_COLUMN_HEADING,
+            ),
+            new HomePageCardView(
+              word: DictionaryWordList.getWordByIndex(133),
+              wordMeaning: DictionaryWordList.getMeaningByIndex(133),
+              cardTitle: DISPLAY_3RD_COLUMN,
+            ),
             /*new Card(
                   child: new Padding(
                 padding: const EdgeInsets.all(PADDING_REGULAR_15),
@@ -310,11 +333,11 @@ Widget _buildBody() {
                             ),
                             new Padding(
                                 padding:
-                                const EdgeInsets.all(PADDING_REGULAR_15),
+                                    const EdgeInsets.all(PADDING_REGULAR_15),
                                 child: Text(
                                   "Rate this App on store",
-                                  style: TextStyle(
-                                      fontSize: FONT_SIZE_REGULAR_15),
+                                  style:
+                                      TextStyle(fontSize: FONT_SIZE_REGULAR_15),
                                 )),
                           ],
                         )))),
@@ -335,9 +358,8 @@ Widget _buildBody() {
                             ),
                             new Padding(
                                 padding:
-                                const EdgeInsets.all(PADDING_REGULAR_15),
-                                child: Text(
-                                    "Share this app with your friends",
+                                    const EdgeInsets.all(PADDING_REGULAR_15),
+                                child: Text("Share this app with your friends",
                                     style: TextStyle(
                                         fontSize: FONT_SIZE_REGULAR_15))),
                           ],
@@ -348,18 +370,18 @@ Widget _buildBody() {
     );
   }
 }
+
 void _sendDataToMeaningScreen(BuildContext context, String selectedWord,
     String wordMeaning, String wordAudio, String wordVideo) {
   Navigator.push(
     context,
     new MyCustomRoute(
       builder: (context) => ViewMeaning(
-        video: wordVideo,
-        audio: wordAudio,
-        meaning: wordMeaning,
-        word: wordMeaning,
-      ),
+            video: wordVideo,
+            audio: wordAudio,
+            meaning: wordMeaning,
+            word: wordMeaning,
+          ),
     ),
   );
 }
-
