@@ -5,6 +5,9 @@ import 'package:vasitionary/helper/constants.dart';
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:vasitionary/model/dictionary_word_list.dart';
 import 'package:vasitionary/model/preferences.dart';
+import 'package:vasitionary/view/custom_textfield_widget.dart';
+import 'package:vasitionary/view/game_card.dart';
+import 'package:vasitionary/view/game_card_parent_widget.dart';
 import 'package:vasitionary/view/homepage_card_widget.dart';
 import 'package:vasitionary/view/navigation_animation.dart';
 import 'package:vasitionary/view/view_word_meaning.dart';
@@ -35,12 +38,12 @@ class HomePage extends State<MyHomePage> {
               fit: BoxFit.cover)),
       child: new Scaffold(
         backgroundColor: Colors.transparent,
-          appBar: new AppBar(
-            title: new Text(APPLICATION_NAME),
-            backgroundColor: COLOR_APPBAR,
-          ),
-          body: _buildBody(),
-          ),
+        appBar: new AppBar(
+          title: new Text(APPLICATION_NAME),
+          backgroundColor: COLOR_APPBAR,
+        ),
+        body: _buildBody(),
+      ),
     );
   }
 
@@ -254,6 +257,7 @@ Widget _buildBody() {
                         )
                       ],
                     ))), //Search text
+            new GameCardParentWidget(),
             new HomePageCardView(
               word: DictionaryWordList.getWordByIndex(index),
               wordMeaning: DictionaryWordList.getMeaningByIndex(index),
