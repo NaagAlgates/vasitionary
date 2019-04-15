@@ -27,17 +27,17 @@ Color COLOR_ENABLED=COLOR_APPBAR;
 const Color COLOR_WHITE = Colors.white;
 const Color COLOR_BLACK = Colors.black;
 
-Color R1C1 = Colors.tealAccent[400];
-Color R1C2 = Colors.purple[400];
-Color R1C3 = Colors.pinkAccent[400];
+Color R1C1 = HexColor("#FC0300");
+Color R1C2 = HexColor("#FFAF02");
+Color R1C3 = HexColor("#FC0300");
 
-Color R2C1 = Colors.deepOrangeAccent[400];
-Color R2C2 = Colors.indigo[400];
-Color R2C3 = Colors.green[400];
+Color R2C1 = HexColor("#9A0098");
+Color R2C2 = HexColor("#011B66");
+Color R2C3 = HexColor("#9A0098");
 
-Color R3C1 = Colors.deepPurpleAccent[400];
-Color R3C2 = Colors.amberAccent[400];
-Color R3C3 = Colors.lightBlueAccent[400];
+Color R3C1 = HexColor("#FFAF02");
+Color R3C2 = HexColor("#FC0300");
+Color R3C3 = HexColor("#FFAF02");
 
 //Ints
 const double FONT_SIZE_REGULAR_15=15.0;
@@ -54,3 +54,15 @@ const double PADDING_REGULAR_15 = 15.0;
 const String PREF_WORD_INDEX = "word_of_the_day";
 const String PREF_KURAL_INDEX = "kural_of_the_day";
 const String PREF_DATE = "current_date";
+
+class HexColor extends Color {
+  static int _getColorFromHex(String hexColor) {
+    hexColor = hexColor.toUpperCase().replaceAll("#", "");
+    if (hexColor.length == 6) {
+      hexColor = "FF" + hexColor;
+    }
+    return int.parse(hexColor, radix: 16);
+  }
+
+  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
+}
