@@ -49,7 +49,7 @@ class CardViewState extends State<HomePageCardView> {
             ),
           ),
           child: new Padding(
-              padding: const EdgeInsets.all(PADDING_REGULAR_15),
+              padding: const EdgeInsets.only(top: 20.0,left: 10.0,right: 10.0,bottom: 10.0),
               child:
                   new Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                 new Align(
