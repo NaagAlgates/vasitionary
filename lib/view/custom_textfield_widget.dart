@@ -3,20 +3,20 @@ import 'package:vasitionary/helper/constants.dart';
 
 class TextFieldWidget extends StatefulWidget {
   Color backgroundColor;
-
-  TextFieldWidget({Key key, @required this.backgroundColor}) : super(key: key);
+  TextEditingController controller;
+  TextFieldWidget({Key key, @required this.backgroundColor,@required this.controller}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return TextFieldCard(backgroundColor);
+    return TextFieldCard(backgroundColor,controller);
   }
 }
 
 class TextFieldCard extends State<TextFieldWidget> {
   Color backgroundColor;
-
-  TextFieldCard(this.backgroundColor);
+  TextEditingController controller;
+  TextFieldCard(this.backgroundColor,this.controller);
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +27,7 @@ class TextFieldCard extends State<TextFieldWidget> {
         child: new Align(
           alignment: Alignment.center,
           child: new TextFormField(
+            controller: controller,
               textAlign: TextAlign.center,
               maxLines: 1,
               maxLength: 1,
