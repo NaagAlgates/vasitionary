@@ -102,7 +102,7 @@ class GameCardParent extends State<GameCardParentWidget> {
                         children: <Widget>[
                           Container(
                             width: MediaQuery.of(context).size.width,
-                            height: 140,
+                            height: 150,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                   topLeft:

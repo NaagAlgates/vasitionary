@@ -54,6 +54,8 @@ flutter:
     - assets/images/icon_word_mines.png
     - assets/images/icon_help.png
     - assets/images/semi_background.jpg
+    - assets/images/icon_tip.png
+    - assets/images/icon_thiruvalluvar.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

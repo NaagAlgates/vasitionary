@@ -56,6 +56,7 @@ const double PADDING_REGULAR_20 = 20.0;
 const double ICON_SMALL_WIDTH=25.0;
 const double ICON_SMALL_HEIGHT=25.0;
 const double RADIUS_CIRCLE = 60.0;
+const double RADIUS_SMALL_CIRCLE = 50.0;
 const double ELEVATION_GAME_AREA = 40.0;
 
 //Preference KeyedSubtree

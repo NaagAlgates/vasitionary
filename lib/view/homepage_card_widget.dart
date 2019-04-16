@@ -5,19 +5,21 @@ class HomePageCardView extends StatefulWidget {
   String word;
   String wordMeaning;
   String cardTitle;
+  String displayImage;
 
   // receive data from the FirstScreen as a parameter
   HomePageCardView(
       {Key key,
       @required this.word,
       @required this.wordMeaning,
-      @required this.cardTitle})
+      @required this.cardTitle,
+      @required this.displayImage})
       : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return CardViewState(word, wordMeaning, cardTitle);
+    return CardViewState(word, wordMeaning, cardTitle, displayImage);
   }
 }
 
@@ -25,18 +27,24 @@ class CardViewState extends State<HomePageCardView> {
   String word;
   String wordMeaning;
   String cardTitle;
+  String displayImage;
 
-  CardViewState(this.word, this.wordMeaning, this.cardTitle);
+  CardViewState(this.word, this.wordMeaning, this.cardTitle, this.displayImage);
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new Card(
+    return new Stack(children: <Widget>[
+      new Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(PADDING_REGULAR_10),
         ),
         elevation: ELEVATION_GAME_AREA,
-        margin: EdgeInsets.all(PADDING_REGULAR_15),
+        margin: const EdgeInsets.only(
+            top: 60.0,
+            left: PADDING_REGULAR_10,
+            right: PADDING_REGULAR_10,
+            bottom: PADDING_REGULAR_20),
         color: Colors.white,
         child: Container(
           decoration: BoxDecoration(
@@ -49,7 +57,8 @@ class CardViewState extends State<HomePageCardView> {
             ),
           ),
           child: new Padding(
-              padding: const EdgeInsets.only(top: 20.0,left: 10.0,right: 10.0,bottom: 10.0),
+              padding: const EdgeInsets.only(
+                  top: 20.0, left: 10.0, right: 10.0, bottom: 10.0),
               child:
                   new Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                 new Align(
@@ -58,7 +67,7 @@ class CardViewState extends State<HomePageCardView> {
                     margin: const EdgeInsets.only(top: 10.0),
                     child: new Padding(
                         padding: const EdgeInsets.only(
-                            left: 0.0, top: 25.0, right: 0.0, bottom: 0.0),
+                            left: 0.0, top: 50.0, right: 0.0, bottom: 0.0),
                         child: new Text(
                           cardTitle,
                           textAlign: TextAlign.left,
@@ -87,11 +96,10 @@ class CardViewState extends State<HomePageCardView> {
                     child: new Text(
                       "Meaning: ",
                       style: TextStyle(
-                        color: COLOR_BLACK,
-                        fontSize: FONT_SIZE_REGULAR_15,
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.bold
-                      ),
+                          color: COLOR_BLACK,
+                          fontSize: FONT_SIZE_REGULAR_15,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold),
                     )),
                 new Padding(
                     padding: const EdgeInsets.all(PADDING_REGULAR_10),
@@ -106,28 +114,42 @@ class CardViewState extends State<HomePageCardView> {
                       ),
                     ))),
                 new Container(
-                    padding: const EdgeInsets.all(10.0),
-                    child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: new Image(
-                            image:
-                                new AssetImage("assets/images/icon_audio.png"),
-                            width: 25.0,
-                            height: 25.0,
-                          ),
-                        ),
-                        new Image(
-                          image: new AssetImage("assets/images/icon_video.png"),
+                  padding: const EdgeInsets.all(10.0),
+                  child: new Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: new Image(
+                          image: new AssetImage("assets/images/icon_audio.png"),
                           width: 25.0,
                           height: 25.0,
                         ),
-                      ],
-                    ),
+                      ),
+                      new Image(
+                        image: new AssetImage("assets/images/icon_video.png"),
+                        width: 25.0,
+                        height: 25.0,
+                      ),
+                    ],
                   ),
+                ),
               ])),
-        ));
+        ),
+      ),
+      FractionalTranslation(
+        translation: Offset(0.0, 0.3),
+        child: Align(
+          child: CircleAvatar(
+            backgroundColor: COLOR_WHITE,
+            radius: RADIUS_SMALL_CIRCLE,
+            child: new Image(
+              image: new AssetImage(displayImage),
+            ),
+          ),
+          alignment: FractionalOffset(0.5, 1.0),
+        ),
+      ),
+    ]);
   }
 }

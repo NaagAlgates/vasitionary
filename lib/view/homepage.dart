@@ -187,12 +187,12 @@ Widget _buildBody() {
             new HomePageCardView(
               word: DictionaryWordList.getWordByIndex(index),
               wordMeaning: DictionaryWordList.getMeaningByIndex(index),
-              cardTitle: DISPLAY_2ND_COLUMN_HEADING,
+              cardTitle: DISPLAY_2ND_COLUMN_HEADING, displayImage: "assets/images/icon_tip.png",
             ),
             new HomePageCardView(
               word: DictionaryWordList.getWordByIndex(133),
               wordMeaning: DictionaryWordList.getMeaningByIndex(133),
-              cardTitle: DISPLAY_3RD_COLUMN,
+              cardTitle: DISPLAY_3RD_COLUMN, displayImage: "assets/images/icon_thiruvalluvar.png",
             ),
             new InkWell(
                 onTap: () {
