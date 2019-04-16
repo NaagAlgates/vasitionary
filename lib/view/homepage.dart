@@ -100,6 +100,7 @@ Widget _buildBody() {
       decoration: new BoxDecoration(
         color: COLOR_APPBAR,
         image: new DecorationImage(
+          colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.multiply),
           image: new AssetImage("assets/images/app_background.jpg"),
           fit: BoxFit.cover,
         ),
@@ -134,29 +135,12 @@ Widget _buildBody() {
                                     color: COLOR_APPBAR,
                                   ), // icon is 48px widget.
                                 ),
-                                /*suffixIcon: Padding(
-                                    padding: EdgeInsets.all(0.0),
-                                    child: IconButton(
-                                      icon: IconButton(
-                                        icon: Icon(Icons.clear),
-                                        disabledColor: COLOR_DISABLED,
-                                        highlightColor: COLOR_ENABLED,
-                                        onPressed: () {
-                                          _textController.clear();
-                                        },
-                                      ),
-                                      onPressed: () {
-                                        _textController.clear();
-                                      },
-                                    ), // icon is 48px widget.
-                                  ),*/
                                 hintText: HINT_SEARCH_TEXT,
                                 hintStyle:
                                     TextStyle(fontSize: FONT_SIZE_REGULAR_20)),
                             itemBuilder: (context, item) {
                               return Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Padding(
                                     padding: EdgeInsets.all(PADDING_REGULAR_10),
@@ -195,64 +179,6 @@ Widget _buildBody() {
                                     .textField.controller.text = item.word);
                               },*/
                             suggestions: DictionaryWordList.wordList,
-
-                            /*TextFormField(
-                              autofocus: false,
-                              autocorrect: false,
-                              autovalidate: false,
-                              obscureText: false,
-                              textDirection: TextDirection.ltr,
-                              textInputAction: TextInputAction.search,
-                              maxLength: 20,
-                              maxLines: 1,
-                              controller: _textController,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontSize: FONT_SIZE_REGULAR_20,
-                                  color: COLOR_BLACK,
-                                  decorationColor: COLOR_APPBAR),
-                              validator: (val) => val.length < 0
-                                  ? DISPLAY_MESSAGE_NO_WORDS
-                                  : null,
-                              decoration: new InputDecoration(
-                                  contentPadding:
-                                  EdgeInsets.all(PADDING_REGULAR_10),
-                                  prefixIcon: Padding(
-                                    padding: EdgeInsets.all(0.0),
-                                    child: Icon(
-                                      Icons.search,
-                                      color: COLOR_APPBAR,
-                                    ), // icon is 48px widget.
-                                  ),
-                                  border: new OutlineInputBorder(
-                                    borderRadius: const BorderRadius.all(
-                                      const Radius.circular(0.0),
-                                    ),
-                                    borderSide: new BorderSide(
-                                      color: COLOR_APPBAR,
-                                      width: 0.0,
-                                    ),
-                                  ),
-                                  suffixIcon: Padding(
-                                    padding: EdgeInsets.all(0.0),
-                                    child: IconButton(
-                                      icon: IconButton(
-                                        icon: Icon(Icons.clear),
-                                        disabledColor: COLOR_DISABLED,
-                                        highlightColor: COLOR_ENABLED,
-                                        onPressed: () {
-                                          _textController.clear();
-                                        },
-                                      ),
-                                      onPressed: () {
-                                        _textController.clear();
-                                      },
-                                    ), // icon is 48px widget.
-                                  ),
-                                  hintText: HINT_SEARCH_TEXT,
-                                  hintStyle: TextStyle(
-                                      fontSize: FONT_SIZE_REGULAR_20)),
-                            ),*/
                           ),
                         )
                       ],
@@ -268,62 +194,11 @@ Widget _buildBody() {
               wordMeaning: DictionaryWordList.getMeaningByIndex(133),
               cardTitle: DISPLAY_3RD_COLUMN,
             ),
-            /*new Card(
-                  child: new Padding(
-                padding: const EdgeInsets.all(PADDING_REGULAR_15),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    new Padding(
-                        padding: const EdgeInsets.all(PADDING_REGULAR_10),
-                        child: new Text(
-                          DISPLAY_3RD_COLUMN,
-                          style: TextStyle(
-                            color: COLOR_APPBAR,
-                            fontSize: FONT_SIZE_HEADING_30,
-                          ),
-                        )),
-                    new Padding(
-                        padding: const EdgeInsets.all(PADDING_REGULAR_10),
-                        child: new Center(
-                            child: new Text(
-                          "அகர முதல எழுத்தெல்லாம் ஆதி \nபகவன் முதற்றே உலகு",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: COLOR_BLACK,
-                            fontSize: FONT_SIZE_REGULAR_20,
-                            fontStyle: FontStyle.normal,
-                          ),
-                        ))),
-                    new Align(
-                        alignment: Alignment.centerLeft,
-                        child: new Text(
-                          "Meaning: ",
-                          style: TextStyle(
-                            color: COLOR_BLACK,
-                            fontSize: FONT_SIZE_REGULAR_15,
-                            fontStyle: FontStyle.normal,
-                          ),
-                        )),
-                    new Padding(
-                        padding: const EdgeInsets.all(PADDING_REGULAR_10),
-                        child: new Center(
-                            child: new Text(
-                          "A is the first of the alphabet; God is the primary force of the world.",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: COLOR_BLACK,
-                            fontSize: FONT_SIZE_REGULAR_20,
-                            fontStyle: FontStyle.normal,
-                          ),
-                        ))),
-                  ],
-                ),
-              )),*/
             new InkWell(
                 onTap: () {
                   print("Playstore tapped");
-                  Share.share('check out my website https://iamnagaraj.com');
+                  Share.share(
+                      'check out my website https://iamnagaraj.com');
                 },
                 child: new Card(
                     child: new Padding(
@@ -336,19 +211,20 @@ Widget _buildBody() {
                               color: COLOR_APPBAR,
                             ),
                             new Padding(
-                                padding:
-                                    const EdgeInsets.all(PADDING_REGULAR_15),
+                                padding: const EdgeInsets.all(
+                                    PADDING_REGULAR_15),
                                 child: Text(
                                   "Rate this App on store",
-                                  style:
-                                      TextStyle(fontSize: FONT_SIZE_REGULAR_15),
+                                  style: TextStyle(
+                                      fontSize: FONT_SIZE_REGULAR_15),
                                 )),
                           ],
                         )))),
             new InkWell(
                 onTap: () {
                   print("Share tapped");
-                  Share.share('check out my website https://iamnagaraj.com');
+                  Share.share(
+                      'check out my website https://iamnagaraj.com');
                 },
                 child: new Card(
                     child: new Padding(
@@ -361,9 +237,10 @@ Widget _buildBody() {
                               color: COLOR_APPBAR,
                             ),
                             new Padding(
-                                padding:
-                                    const EdgeInsets.all(PADDING_REGULAR_15),
-                                child: Text("Share this app with your friends",
+                                padding: const EdgeInsets.all(
+                                    PADDING_REGULAR_15),
+                                child: Text(
+                                    "Share this app with your friends",
                                     style: TextStyle(
                                         fontSize: FONT_SIZE_REGULAR_15))),
                           ],

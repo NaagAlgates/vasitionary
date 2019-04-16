@@ -4,19 +4,28 @@ import 'package:vasitionary/helper/constants.dart';
 class TextFieldWidget extends StatefulWidget {
   Color backgroundColor;
   TextEditingController controller;
-  TextFieldWidget({Key key, @required this.backgroundColor,@required this.controller}) : super(key: key);
+  bool isEnabled;
+  String initialValue;
+  TextFieldWidget({Key key, @required this.backgroundColor,
+    @required this.controller,
+    @required this.isEnabled,
+    @required this.initialValue
+  }) :
+        super(key: key);
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return TextFieldCard(backgroundColor,controller);
+    return TextFieldCard(backgroundColor,controller,isEnabled,initialValue);
   }
 }
 
 class TextFieldCard extends State<TextFieldWidget> {
   Color backgroundColor;
   TextEditingController controller;
-  TextFieldCard(this.backgroundColor,this.controller);
+  bool isEnabled;
+  String initialValue;
+  TextFieldCard(this.backgroundColor,this.controller,this.isEnabled,this.initialValue);
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +36,8 @@ class TextFieldCard extends State<TextFieldWidget> {
         child: new Align(
           alignment: Alignment.center,
           child: new TextFormField(
+            initialValue: initialValue,
+            enabled: isEnabled,
             controller: controller,
               textAlign: TextAlign.center,
               maxLines: 1,

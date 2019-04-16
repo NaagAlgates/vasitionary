@@ -49,6 +49,14 @@ const double FONT_SIZE_HEADING_40=40.0;
 //Padding
 const double PADDING_REGULAR_10 = 10.0;
 const double PADDING_REGULAR_15 = 15.0;
+const double PADDING_REGULAR_20 = 20.0;
+
+//Dimensions:
+
+const double ICON_SMALL_WIDTH=25.0;
+const double ICON_SMALL_HEIGHT=25.0;
+const double RADIUS_CIRCLE = 60.0;
+const double ELEVATION_GAME_AREA = 40.0;
 
 //Preference KeyedSubtree
 

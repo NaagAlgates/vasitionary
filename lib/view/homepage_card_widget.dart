@@ -31,11 +31,11 @@ class CardViewState extends State<HomePageCardView> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Card(
+    return new Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(PADDING_REGULAR_10),
         ),
-        elevation: 5,
+        elevation: ELEVATION_GAME_AREA,
         margin: EdgeInsets.all(PADDING_REGULAR_15),
         color: Colors.white,
         child: Container(
