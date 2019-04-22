@@ -76,3 +76,12 @@ class HexColor extends Color {
 
   HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
 }
+
+int getFactorial(var maxValue) {
+  var fact = 1;
+  for(var i = 2;i<=maxValue;i++)
+  {
+    fact *=i;
+  }
+  return fact;
+}

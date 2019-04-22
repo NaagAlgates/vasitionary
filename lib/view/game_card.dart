@@ -94,14 +94,17 @@ class GameCard extends State<GameCardWidget> {
                 new Expanded(
                     child: new TextFieldWidget(
                   backgroundColor: R1C1, controller: tR1C1,
+                      isEnabled: true,initialValue: null,
                 )),
                 new Expanded(
                     child: new TextFieldWidget(
                   backgroundColor: R1C2, controller: tR1C2,
+                      isEnabled: true,initialValue: null,
                 )),
                 new Expanded(
                     child: new TextFieldWidget(
                   backgroundColor: R1C3,controller: tR1C3,
+                      isEnabled: true,initialValue: null,
                 )),
               ],
             ),
@@ -110,14 +113,17 @@ class GameCard extends State<GameCardWidget> {
                 new Expanded(
                     child: new TextFieldWidget(
                       backgroundColor: R2C1,controller: tR2C1,
+                      isEnabled: true,initialValue: null,
                     )),
                 new Expanded(
                     child: new TextFieldWidget(
                       backgroundColor: R2C2,controller: tR2C2,
+                      isEnabled: true,initialValue: null,
                     )),
                 new Expanded(
                     child: new TextFieldWidget(
                       backgroundColor: R2C3, controller: tR2C3,
+                      isEnabled: true,initialValue: null,
                     )),
               ],
             ),
@@ -126,14 +132,17 @@ class GameCard extends State<GameCardWidget> {
                 new Expanded(
                     child: new TextFieldWidget(
                       backgroundColor: R3C1, controller: tR3C1,
+                      isEnabled: true,initialValue: null,
                     )),
                 new Expanded(
                     child: new TextFieldWidget(
                       backgroundColor: R3C2, controller: tR3C2,
+                      isEnabled: true,initialValue: null,
                     )),
                 new Expanded(
                     child: new TextFieldWidget(
                       backgroundColor: R3C3, controller: tR3C3,
+                      isEnabled: true,initialValue: null,
                     )),
               ],
             ),

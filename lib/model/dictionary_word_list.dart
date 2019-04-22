@@ -17,6 +17,9 @@ class DictionaryWordList {
     return wordList[index].meaning.toString();
   }
 
+  static bool isLetterCombinationExists(String strMatch){
+    return wordList.contains(strMatch);
+  }
   static Future loadPlayers() async {
     try {
       wordList = new List<WordList>();

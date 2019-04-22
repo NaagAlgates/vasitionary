@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:vasitionary/helper/constants.dart';
 import 'package:vasitionary/view/custom_textfield_widget.dart';
 import 'package:vasitionary/view/game_card.dart';
+import 'package:vasitionary/view/game_word_list.dart';
+import 'package:vasitionary/view/navigation_animation.dart';
 
 String sR1C1, sR1C2, sR1C3, sR2C1, sR2C2, sR2C3, sR3C1, sR3C2, sR3C3;
 TextEditingController tR1C1 = new TextEditingController();
@@ -33,17 +35,17 @@ class GameCardParent extends State<GameCardParentWidget> {
   @override
   void initState() {
     super.initState();
-    tR1C1.text = "a";
-    tR1C2.text = "b";
-    tR1C3.text = "c";
+    tR1C1.text = "";
+    tR1C2.text = "";
+    tR1C3.text = "";
 
-    tR2C1.text = "e";
-    tR2C2.text = "f";
-    tR2C3.text = "g";
+    tR2C1.text = "";
+    tR2C2.text = "";
+    tR2C3.text = "";
 
-    tR3C1.text = "h";
-    tR3C2.text = "i";
-    tR3C3.text = "j";
+    tR3C1.text = "";
+    tR3C2.text = "";
+    tR3C3.text = "";
   }
 
   @override
@@ -112,7 +114,7 @@ class GameCardParent extends State<GameCardParentWidget> {
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: new AssetImage(
-                                    "assets/images/semi_background.jpg"),
+                                    "assets/images/semi_background.png"),
                               ),
                             ),
                           ),
@@ -140,7 +142,7 @@ class GameCardParent extends State<GameCardParentWidget> {
                             ),
                           ),
                           new Container(
-                            padding: new EdgeInsets.only(top: 70.0),
+                            padding: new EdgeInsets.only(top: 64.0),
                             child: new Column(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
@@ -151,25 +153,25 @@ class GameCardParent extends State<GameCardParentWidget> {
                                       DISPLAY_MENU_2,
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
-                                          color: COLOR_WHITE,
+                                          color: COLOR_APPBAR,
                                           fontSize: FONT_SIZE_HEADING_30,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
                                 ),
-                                new Align(
+                                /*new Align(
                                   alignment: Alignment.center,
                                   child: new Container(
                                     child: new Text(
                                       DISPLAY_MENU_2_DESCRIPTION,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        color: Colors.limeAccent,
+                                        color: COLOR_BLACK,
                                         fontSize: FONT_SIZE_REGULAR_15,
                                       ),
                                     ),
                                   ),
-                                ),
+                                ),*/
                               ],
                             ),
                           ),
@@ -326,5 +328,13 @@ class GameCardParent extends State<GameCardParentWidget> {
     print(sR3C2);
     sR3C3 = tR3C3.text;
     print(sR3C3);
+
+    /*Navigator.push(
+      context,
+      new MyCustomRoute(
+        builder: (context) => DisplayWordList(sR1C1: sR1C1,sR1C2:sR1C2,sR1C3:sR1C3,sR2C1:sR2C1,sR2C2:sR2C2,sR2C3:sR2C3,sR3C1:sR3C1,sR3C2:sR3C2,sR3C3:sR3C3
+        ),
+      ),
+    );*/
   }
 }

@@ -53,7 +53,7 @@ flutter:
     - assets/images/gamecard_background.jpg
     - assets/images/icon_word_mines.png
     - assets/images/icon_help.png
-    - assets/images/semi_background.jpg
+    - assets/images/semi_background.png
     - assets/images/icon_tip.png
     - assets/images/icon_thiruvalluvar.png
   #  - images/a_dot_ham.jpeg

@@ -33,7 +33,6 @@ class CardViewState extends State<HomePageCardView> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Stack(children: <Widget>[
       new Card(
         shape: RoundedRectangleBorder(
