@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 
 //Hints
 const String HINT_SEARCH_TEXT = "தேடு";
+const String HINT_SORKKUVARI_TEXT = "சொற்குவாரி";
+const String HINT_SETTINGS_TEXT = "அமைப்புகள்";
 
 //Application Constants
 const String APPLICATION_NAME = "சொற்களஞ்சியம்";
 const String TITLE_MAIN_PAGE = APPLICATION_NAME;
 const String DATE_FORMAT="MM-DD-YYYY";
+const String TITLE_SEARCH_PAGE = "வார்த்தை தேடல்";
 
 //Action items label
 const String BTN_YES_TEXT = "ஆம்";

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vasitionary/ui/homescreen.dart';
 import 'helper/constants.dart';
 import 'package:vasitionary/view/homepage.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
           textSelectionColor: COLOR_APPBAR, cursorColor: COLOR_APPBAR),
       debugShowCheckedModeBanner: false,
       title: TITLE_MAIN_PAGE,
-      home: MyHomePage(),
+      home: HomeScreen(),
     );
   }
 }
