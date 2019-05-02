@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vasitionary/helper/constants.dart';
-import 'package:vasitionary/view/custom_textfield_widget.dart';
-import 'package:vasitionary/view/game_card.dart';
-import 'package:vasitionary/view/game_word_list.dart';
-import 'package:vasitionary/view/navigation_animation.dart';
+import 'package:vasitionary/ui/custom_textfield_widget.dart';
+import 'package:vasitionary/ui/game_card.dart';
+import 'package:vasitionary/ui/game_word_list.dart';
+import 'package:vasitionary/ui/navigation_animation.dart';
 
 String sR1C1, sR1C2, sR1C3, sR2C1, sR2C2, sR2C3, sR3C1, sR3C2, sR3C3;
 TextEditingController tR1C1 = new TextEditingController();

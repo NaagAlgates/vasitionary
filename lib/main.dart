@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:vasitionary/ui/homescreen.dart';
+import 'package:vasitionary/ui/login_home.dart';
 import 'helper/constants.dart';
-import 'package:vasitionary/view/homepage.dart';
+import 'package:vasitionary/ui/homepage.dart';
 
-void main() => runApp(new MyApp());
+void main() {
+  // Full screen UI
+  //SystemChrome.setEnabledSystemUIOverlays([]);
+  runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -15,7 +21,7 @@ class MyApp extends StatelessWidget {
           textSelectionColor: COLOR_APPBAR, cursorColor: COLOR_APPBAR),
       debugShowCheckedModeBanner: false,
       title: TITLE_MAIN_PAGE,
-      home: HomeScreen(),
+      home: LoginActivity(),
     );
   }
 }

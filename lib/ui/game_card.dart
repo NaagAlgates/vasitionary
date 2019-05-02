@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vasitionary/helper/constants.dart';
-import 'package:vasitionary/view/custom_textfield_widget.dart';
+import 'package:vasitionary/ui/custom_textfield_widget.dart';
 
 class GameCardWidget extends StatefulWidget {
 

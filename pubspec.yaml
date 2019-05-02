@@ -27,6 +27,7 @@ dependencies:
   share: ^0.6.1
   shared_preferences: ^0.4.3
   fancy_bottom_navigation: ^0.3.2
+  font_awesome_flutter: ^8.4.0
 
 dev_dependencies:
   flutter_test:
@@ -57,6 +58,7 @@ flutter:
     - assets/images/semi_background.png
     - assets/images/icon_tip.png
     - assets/images/icon_thiruvalluvar.png
+    - assets/images/logo.gif
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
