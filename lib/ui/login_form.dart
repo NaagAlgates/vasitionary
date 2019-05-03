@@ -9,6 +9,7 @@ import 'package:vasitionary/bloc/login/login_event.dart';
 import 'package:vasitionary/bloc/login/login_state.dart';
 import 'package:vasitionary/helper/constants.dart';
 import 'package:vasitionary/model/user_repository.dart';
+import 'package:giffy_dialog/giffy_dialog.dart';
 
 import 'login_create_account.dart';
 import 'google_login_button.dart';
@@ -31,6 +32,7 @@ class _LoginFormState extends State<LoginForm> {
   bool passwordVisible = true;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   UserRepository get _userRepository => widget._userRepository;
 
@@ -40,7 +42,6 @@ class _LoginFormState extends State<LoginForm> {
   bool isLoginButtonEnabled(LoginState state) {
     return state.isFormValid && isPopulated && !state.isSubmitting;
   }
-
 
   @override
   void initState() {
@@ -309,16 +310,19 @@ class _LoginFormState extends State<LoginForm> {
                                                   });
                                                 }),
                                             contentPadding: EdgeInsets.fromLTRB(
-                                                PADDING_REGULAR_20, PADDING_REGULAR_15, PADDING_REGULAR_20, PADDING_REGULAR_15),
+                                                PADDING_REGULAR_20,
+                                                PADDING_REGULAR_15,
+                                                PADDING_REGULAR_20,
+                                                PADDING_REGULAR_15),
                                             hintText: HINT_PASSWORD,
                                             counterText: "",
                                             border: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(RADIUS_5),
+                                                  BorderRadius.circular(
+                                                      RADIUS_5),
                                             )),
                                       ),
                                     )),
-
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -326,17 +330,18 @@ class _LoginFormState extends State<LoginForm> {
                                   children: <Widget>[
                                     Align(
                                         alignment: Alignment.centerLeft,
-                                        child: CreateAccountButton(userRepository: _userRepository)),
+                                        child: CreateAccountButton(
+                                            userRepository: _userRepository)),
                                     SizedBox(
                                       width: 50.0,
                                     ),
                                     Align(
                                         alignment: Alignment.centerRight,
                                         child: InkWell(
-                                          onTap: ()=>{
-                                            //Forgot Password clicked
-                                          _onResetEmail(),
-                                          },
+                                          onTap: () => {
+                                                //Forgot Password clicked
+                                                _onResetEmail(),
+                                              },
                                           child: Text(
                                             TITLE_FORGOT_PASSWORD,
                                             maxLines: 1,
@@ -472,16 +477,54 @@ class _LoginFormState extends State<LoginForm> {
     );
   }
 
-  void _onResetEmail(){
-    if(_emailController.text.length> 0) {
-     /* _loginBloc.dispatch(
+  void _onResetEmail() {
+    if (_emailController.text.length > 0) {
+      /* _loginBloc.dispatch(
         ResetEmailPassword(
           email: _emailController.text,
         ),
       );*/
-      _userRepository.sendPasswordResetEmail(_emailController.text);
-    }else{
+      _userRepository
+          .sendPasswordResetEmail(_emailController.text)
+          .then((result) {
+        Scaffold.of(context).showSnackBar(
+          const SnackBar(content: const Text(HINT_REQUESTING_PASSWORD_RESET)),
+        );
+      }).catchError((error) {
+        Scaffold.of(context).showSnackBar(
+          const SnackBar(
+              content: const Text(HINT_REQUESTING_PASSWORD_RESET_FAILED)),
+        );
+      });
+    } else {
       //Please enter a valid email
+
+      showDialog(
+          context: context,
+          builder: (_) => AssetGiffyDialog(
+            key: _scaffoldKey,
+                onlyOkButton: true,
+                buttonOkText: Text(
+                  BTN_OKAY_TEXT,
+                  style: TextStyle(color: Colors.white),
+                ),
+                image: Image.asset(
+                  'assets/images/forgot_password.gif',
+                  fit: BoxFit.cover,
+                ),
+                title: Text(
+                  TITLE_FORGOT_PASSWORD,
+                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w600),
+                ),
+                description: Text(
+                  HINT_ENTER_EMAIL,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(),
+                ),
+                onOkButtonPressed: () {
+                  Navigator.pop(context, true);
+                },
+              ));
     }
   }
 }

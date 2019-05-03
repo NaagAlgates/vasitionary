@@ -11,6 +11,11 @@ const String HINT_LOGIN_FAILED = "உள்நுழைவு தோல்வி
 const String HINT_LOGGIN_IN = "உள்நுழைய முயலுதல் ...";
 const String HINT_PASSWORD = "கடவுச்சொல்";
 const String HINT_LOGIN = "உள்நுழை";
+const String HINT_ENTER_EMAIL = "புதிய கடவுச்சொல் இணைப்பை உருவாக்க மின்னஞ்சலை உள்ளிடவும்.";
+const String HINT_REQUESTING_PASSWORD_RESET_FAILED = "கடவுச்சொல் மீட்டமைப்பு தோல்வியடைந்தது, சரியான முகவரியை உள்ளிடுகிறீர்களா?";
+const String HINT_REQUESTING_PASSWORD_RESET = "கடவுச்சொல் மீட்டமைப்பைக் கோருகிறது.";
+const String HINT_ACCOUNT_CREATION_FAILED = "பதிவு செய்ய முடியவில்லை.";
+const String HINT_REGISTERING = "பதிவு செய்கிறது ...";
 const String HINT_LOGIN_GOOGLE = "கூகிள் துணையுடன் உள்நுழைக";
 const String HINT_SOCIAL_LOGIN = "-------------சமூகவலைதள உள்நுழைவு-------------";
 
@@ -24,6 +29,7 @@ const String TITLE_FORGOT_PASSWORD = "கடவை மறந்தேன்";
 
 //Action items label
 const String BTN_YES_TEXT = "ஆம்";
+const String BTN_OKAY_TEXT = "சரி";
 const String BTN_NO_TEXT = "இல்லை";
 const String BTN_CREATE_TEXT = "உருவாக்கு";
 
@@ -32,6 +38,12 @@ const String DISPLAY_MESSAGE_NO_WORDS="தயவுசெய்து ஒரு 
 const String DISPLAY_2ND_COLUMN_HEADING = "தினம் ஒரு சொல்!";
 const String DISPLAY_3RD_COLUMN = "தினம் ஒரு குறள்!";
 const String DISPLAY_MENU_2 = "சொற்குவாரி";
+const String DISPLAY_PASSWORD_CONDITIONS =
+    "* கடவுச்சொல்லில் குறைந்தது ஒரு கேப்பிட்டல் எழுத்து கொண்டிருக்க வேண்டும். \n\n"+
+    "* கடவுச்சொல்லில் குறைந்தது ஒரு சிறப்பு எழுத்து கொண்டிருக்க வேண்டும். \n\n"+
+    "* கடவுச்சொல்லில் குறைந்தபட்சம் ஒரு எண் எழுத்துக்குறி இருக்க வேண்டும். \n\n"+
+    "* கடவுச்சொல்லில் குறைந்தது ஒரு சிறிய எழுத்து கொண்டிருக்க வேண்டும். \n\n"+
+    "* கடவுச்சொல் நீளம் குறைந்தது 8 எழுத்துகள் இருக்க வேண்டும்.";
 const String DISPLAY_MENU_2_DESCRIPTION = "தங்களிடம் உள்ள சொற்களை இங்கே உள்ளீடுக.";
 
 //Constant Colors
@@ -41,6 +53,8 @@ Color COLOR_ENABLED=COLOR_APPBAR;
 const Color COLOR_WHITE = Colors.white;
 const Color COLOR_BLACK = Colors.black;
 Color APP_COLOR_GREEN =  HexColor("#64A03C");
+Color APP_CREATE_ACCOUNT = HexColor("#82E3FF");
+Color APP_CREATE_ACCOUNT_ICONS = Colors.lightBlue;
 
 Color R1C1 = HexColor("#FC0300");
 Color R1C2 = HexColor("#FFAF02");
@@ -109,3 +123,4 @@ int getFactorial(var maxValue) {
   }
   return fact;
 }
+
