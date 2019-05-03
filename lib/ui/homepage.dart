@@ -16,7 +16,7 @@ import 'dart:math';
 
 bool isDataLoading = false;
 
-class HomePage extends State<MyHomePage> {
+class HomePage extends State<MyApp> {
   String selectedWord = "Testing";
   String selectedWordMeaning = "This is testing meaning";
   final TextEditingController _textController = new TextEditingController();

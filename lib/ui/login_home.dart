@@ -137,6 +137,8 @@ class _LoginActivityState extends State<LoginActivity> {
                 reverse: true,
                 child: Column(
                   children: <Widget>[
+
+
                     Stack(
                       children: <Widget>[
                         Container(

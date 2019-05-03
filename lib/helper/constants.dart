@@ -4,12 +4,23 @@ import 'package:flutter/material.dart';
 const String HINT_SEARCH_TEXT = "தேடு";
 const String HINT_SORKKUVARI_TEXT = "சொற்குவாரி";
 const String HINT_SETTINGS_TEXT = "அமைப்புகள்";
+const String HINT_INVALID_PASSWORD = "தவறான கடவுச்சொல்";
+const String HINT_EMAIL = "மின்னஞ்சல்";
+const String HINT_INVALID_EMAIL = "தவறான மின்னஞ்சல்";
+const String HINT_LOGIN_FAILED = "உள்நுழைவு தோல்வியடைந்தது";
+const String HINT_LOGGIN_IN = "உள்நுழைய முயலுதல் ...";
+const String HINT_PASSWORD = "கடவுச்சொல்";
+const String HINT_LOGIN = "உள்நுழை";
+const String HINT_LOGIN_GOOGLE = "கூகிள் துணையுடன் உள்நுழைக";
+const String HINT_SOCIAL_LOGIN = "-------------சமூகவலைதள உள்நுழைவு-------------";
 
 //Application Constants
 const String APPLICATION_NAME = "சொற்களஞ்சியம்";
 const String TITLE_MAIN_PAGE = APPLICATION_NAME;
 const String DATE_FORMAT="MM-DD-YYYY";
 const String TITLE_SEARCH_PAGE = "வார்த்தை தேடல்";
+const String TITLE_CREATE_ACCOUNT = "கணக்கை உருவாக்குக";
+const String TITLE_FORGOT_PASSWORD = "கடவை மறந்தேன்";
 
 //Action items label
 const String BTN_YES_TEXT = "ஆம்";
@@ -44,6 +55,12 @@ Color R3C2 = HexColor("#FC0300");
 Color R3C3 = HexColor("#FFAF02");
 
 //Ints
+
+const int MAX_LINES = 1;
+const int MAX_CHAR_COUNT = 30;
+
+//Fonts
+const double FONT_SIZE_REGULAR_12=12.0;
 const double FONT_SIZE_REGULAR_15=15.0;
 const double FONT_SIZE_REGULAR_20=20.0;
 const double FONT_SIZE_HEADING_30=30.0;
@@ -53,6 +70,10 @@ const double FONT_SIZE_HEADING_40=40.0;
 const double PADDING_REGULAR_10 = 10.0;
 const double PADDING_REGULAR_15 = 15.0;
 const double PADDING_REGULAR_20 = 20.0;
+
+//General
+const double RADIUS_2 = 2.0;
+const double RADIUS_5 = 5.0;
 
 //Dimensions:
 

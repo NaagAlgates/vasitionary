@@ -1,34 +1,66 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:vasitionary/ui/homescreen.dart';
-import 'package:vasitionary/ui/login_home.dart';
-import 'helper/constants.dart';
-import 'package:vasitionary/ui/homepage.dart';
+import 'package:vasitionary/ui/home_screen.dart';
+import 'package:vasitionary/ui/login_screen.dart';
+import 'package:vasitionary/ui/splashscreen.dart';
+import 'bloc/authentication/auth.dart';
+import 'bloc/authentication/auth_delegate.dart';
+import 'bloc/authentication/auth_event.dart';
+import 'bloc/authentication/auth_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'model/user_repository.dart';
 
 void main() {
   // Full screen UI
   //SystemChrome.setEnabledSystemUIOverlays([]);
+  BlocSupervisor().delegate = AuthBlocDelegate();
   runApp(new MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final UserRepository _userRepository = UserRepository();
+  AuthenticationBloc _authenticationBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _authenticationBloc = AuthenticationBloc(userRepository: _userRepository);
+    _authenticationBloc.dispatch(AppStarted());
+  }
+
+  @override
+  void dispose() {
+    _authenticationBloc.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      theme: ThemeData(
-          textSelectionColor: COLOR_APPBAR, cursorColor: COLOR_APPBAR),
-      debugShowCheckedModeBanner: false,
-      title: TITLE_MAIN_PAGE,
-      home: LoginActivity(),
+    return BlocProvider(
+      bloc: _authenticationBloc,
+      child: MaterialApp(
+        color: Colors.lightGreen,
+        home: BlocBuilder(
+          bloc: _authenticationBloc,
+          builder: (BuildContext context, AuthenticationState state) {
+            if (state is Uninitialized) {
+              return SplashScreen();
+            }
+            if (state is Authenticated) {
+              return HomeScreen(name: state.displayName);
+            }
+            if (state is Unauthenticated) {
+              return LoginScreen(userRepository: _userRepository);
+            }
+          },
+        ),
+      ),
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-  @override
-  HomePage createState() => HomePage();
 }
