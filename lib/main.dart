@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:vasitionary/ui/home_screen.dart';
+import 'package:vasitionary/ui/homescreen.dart';
 import 'package:vasitionary/ui/login_screen.dart';
 import 'package:vasitionary/ui/splashscreen.dart';
 import 'bloc/authentication/auth.dart';
@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
               return SplashScreen();
             }
             if (state is Authenticated) {
-              return HomeScreen(name: state.displayName);
+              return HomeScreen(userEmail: state.displayName,userDpUrl: state.displayImage, userName: state.displayUserName,);
             }
             if (state is Unauthenticated) {
               return LoginScreen(userRepository: _userRepository);

@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vasitionary/bloc/authentication/auth.dart';
 import 'package:vasitionary/bloc/authentication/auth_event.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreenTest extends StatelessWidget {
   final String name;
 
-  HomeScreen({Key key, @required this.name}) : super(key: key);
+  HomeScreenTest({Key key, @required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

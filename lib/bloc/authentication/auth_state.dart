@@ -13,8 +13,10 @@ class Uninitialized extends AuthenticationState {
 
 class Authenticated extends AuthenticationState {
   final String displayName;
+  final String displayImage;
+  final String displayUserName;
 
-  Authenticated(this.displayName) : super([displayName]);
+  Authenticated(this.displayName,this.displayImage,this.displayUserName) : super([displayName,displayImage,displayUserName]);
 
   @override
   String toString() => 'Authenticated { displayName: $displayName }';
