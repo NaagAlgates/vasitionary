@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 //Hints
 const String HINT_SEARCH_TEXT = "தேடு";
+const String HINT_MEANING_TEXT = "அர்த்தம்: ";
 const String HINT_SORKKUVARI_TEXT = "சொற்குவாரி";
 const String HINT_SETTINGS_TEXT = "அமைப்புகள்";
 const String HINT_INVALID_PASSWORD = "தவறான கடவுச்சொல்";

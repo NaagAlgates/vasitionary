@@ -93,7 +93,7 @@ class CardViewState extends State<HomePageCardView> {
                 new Align(
                     alignment: Alignment.centerLeft,
                     child: new Text(
-                      "Meaning: ",
+                      HINT_MEANING_TEXT,
                       style: TextStyle(
                           color: COLOR_BLACK,
                           fontSize: FONT_SIZE_REGULAR_15,
