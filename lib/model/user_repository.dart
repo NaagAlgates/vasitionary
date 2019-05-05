@@ -52,10 +52,16 @@ class UserRepository {
     return (await _firebaseAuth.currentUser()).email;
   }
   Future<String> getUserDP() async {
-    return (await _firebaseAuth.currentUser()).photoUrl;
+    return (await _firebaseAuth.currentUser()).photoUrl!=null &&
+        (await _firebaseAuth.currentUser()).photoUrl.length>0 ?
+    (await _firebaseAuth.currentUser()).photoUrl:
+    "assets/images/user_image.png";
   }
   Future<String> getUserName() async {
-    return (await _firebaseAuth.currentUser()).displayName;
+    return (await _firebaseAuth.currentUser()).displayName !=null &&
+        (await _firebaseAuth.currentUser()).displayName.split(' ')[0].length>0 ?
+    (await _firebaseAuth.currentUser()).displayName.split(' ')[0]:
+    (await _firebaseAuth.currentUser()).email ;
   }
 
   Future<void> sendPasswordResetEmail(String email) async {

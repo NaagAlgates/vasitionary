@@ -69,6 +69,7 @@ flutter:
     - assets/images/fly_dribble.gif
     - assets/images/forgot_password.gif
     - assets/images/xmas-coze.gif
+    - assets/images/user_image.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

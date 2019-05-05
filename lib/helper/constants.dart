@@ -11,6 +11,7 @@ const String HINT_LOGIN_FAILED = "உள்நுழைவு தோல்வி
 const String HINT_LOGGIN_IN = "உள்நுழைய முயலுதல் ...";
 const String HINT_PASSWORD = "கடவுச்சொல்";
 const String HINT_LOGIN = "உள்நுழை";
+const String HINT_LOGGING_OUT = "வெளியேற்றுதல் ...";
 const String HINT_ENTER_EMAIL = "புதிய கடவுச்சொல் இணைப்பை உருவாக்க மின்னஞ்சலை உள்ளிடவும்.";
 const String HINT_REQUESTING_PASSWORD_RESET_FAILED = "கடவுச்சொல் மீட்டமைப்பு தோல்வியடைந்தது, சரியான முகவரியை உள்ளிடுகிறீர்களா?";
 const String HINT_REQUESTING_PASSWORD_RESET = "கடவுச்சொல் மீட்டமைப்பைக் கோருகிறது.";
@@ -32,6 +33,7 @@ const String BTN_YES_TEXT = "ஆம்";
 const String BTN_OKAY_TEXT = "சரி";
 const String BTN_NO_TEXT = "இல்லை";
 const String BTN_CREATE_TEXT = "உருவாக்கு";
+const String BTN_LOGOUT_TEXT = "வெளியேறு";
 
 //Display Message text
 const String DISPLAY_MESSAGE_NO_WORDS="தயவுசெய்து ஒரு வார்த்தையை உள்ளிடவும்";

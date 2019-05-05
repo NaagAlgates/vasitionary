@@ -31,12 +31,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: new AssetImage("assets/images/app_background.jpg"),
                 fit: BoxFit.cover)),
         child: Scaffold(
-          /*appBar: PreferredSize(
+          appBar: PreferredSize(
               preferredSize: prefSize, // here the desired height
               child: AppBar(
                 title: Text(APPLICATION_NAME),
                 backgroundColor: APPBAR_BACKGROUND_COLOR,
-              )),*/
+              )),
           body: new Container(
             decoration: BoxDecoration(color: Colors.white),
             child: Center(
