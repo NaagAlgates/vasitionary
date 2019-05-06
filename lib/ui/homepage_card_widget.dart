@@ -72,7 +72,7 @@ class CardViewState extends State<HomePageCardView> {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color: COLOR_BLACK,
-                            fontSize: FONT_SIZE_REGULAR_20,
+                            fontSize: MediaQuery.of(context).size.width*SIZE_20,
                           ),
                         )),
                   ),
@@ -108,7 +108,7 @@ class CardViewState extends State<HomePageCardView> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: COLOR_BLACK,
-                        fontSize: FONT_SIZE_REGULAR_20,
+                        fontSize: MediaQuery.of(context).size.width*SIZE_20,
                         fontStyle: FontStyle.normal,
                       ),
                     ))),

@@ -102,7 +102,7 @@ class _SearchPageState extends State<SearchHomeScreen> {
                             itemSubmitted: (item) {},
                             textInputAction: TextInputAction.search,
                             style: new TextStyle(
-                                fontSize: FONT_SIZE_REGULAR_20,
+                                fontSize: MediaQuery.of(context).size.width*SIZE_20,
                                 color: COLOR_BLACK,
                                 decorationColor: COLOR_APPBAR),
                             decoration: new InputDecoration(
@@ -115,7 +115,7 @@ class _SearchPageState extends State<SearchHomeScreen> {
                                   ), // icon is 48px widget.
                                 ),
                                 hintText: HINT_SEARCH_TEXT,
-                                hintStyle: TextStyle(fontSize: FONT_SIZE_REGULAR_20)),
+                                hintStyle: TextStyle(fontSize: MediaQuery.of(context).size.width*SIZE_20)),
                             itemBuilder: (context, item) {
                               return Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -126,7 +126,7 @@ class _SearchPageState extends State<SearchHomeScreen> {
                                       child: Text(
                                         item.word,
                                         style: TextStyle(
-                                            fontSize: FONT_SIZE_REGULAR_20,
+                                            fontSize: MediaQuery.of(context).size.width*SIZE_20,
                                             color: COLOR_APPBAR,
                                             decorationColor: COLOR_APPBAR),
                                       ),

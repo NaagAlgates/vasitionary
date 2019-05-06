@@ -276,7 +276,7 @@ class _LoginFormState extends State<LoginForm> {
                                         child: CreateAccountButton(
                                             userRepository: _userRepository)),
                                     SizedBox(
-                                      width: 50.0,
+                                      width: MediaQuery.of(context).size.height * .09,
                                     ),
                                     Align(
                                         alignment: Alignment.centerRight,
@@ -457,7 +457,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 title: Text(
                   TITLE_FORGOT_PASSWORD,
-                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: MediaQuery.of(context).size.width*SIZE_20, fontWeight: FontWeight.w600),
                 ),
                 description: Text(
                   HINT_ENTER_EMAIL,

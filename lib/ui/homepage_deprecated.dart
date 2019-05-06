@@ -122,7 +122,7 @@ Widget _buildBody() {
                             itemSubmitted: (item) {},
                             textInputAction: TextInputAction.search,
                             style: new TextStyle(
-                                fontSize: FONT_SIZE_REGULAR_20,
+                                fontSize: 20.0,
                                 color: COLOR_BLACK,
                                 decorationColor: COLOR_APPBAR),
                             decoration: new InputDecoration(
@@ -137,7 +137,7 @@ Widget _buildBody() {
                                 ),
                                 hintText: HINT_SEARCH_TEXT,
                                 hintStyle:
-                                    TextStyle(fontSize: FONT_SIZE_REGULAR_20)),
+                                    TextStyle(fontSize: 20.0)),
                             itemBuilder: (context, item) {
                               return Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -148,7 +148,7 @@ Widget _buildBody() {
                                       child: Text(
                                         item.word,
                                         style: TextStyle(
-                                            fontSize: FONT_SIZE_REGULAR_20,
+                                            fontSize: 20.0,
                                             color: COLOR_APPBAR,
                                             decorationColor: COLOR_APPBAR),
                                       ),

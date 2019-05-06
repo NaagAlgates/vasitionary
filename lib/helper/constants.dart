@@ -19,7 +19,7 @@ const String HINT_REQUESTING_PASSWORD_RESET = "கடவுச்சொல் �
 const String HINT_ACCOUNT_CREATION_FAILED = "பதிவு செய்ய முடியவில்லை.";
 const String HINT_REGISTERING = "பதிவு செய்கிறது ...";
 const String HINT_LOGIN_GOOGLE = "கூகிள் துணையுடன் உள்நுழைக";
-const String HINT_SOCIAL_LOGIN = "-------------சமூகவலைதள உள்நுழைவு-------------";
+const String HINT_SOCIAL_LOGIN = "சமூகவலைதள உள்நுழைவு";
 
 //Application Constants
 const String APPLICATION_NAME = "சொற்களஞ்சியம்";
@@ -79,7 +79,7 @@ const int MAX_CHAR_COUNT = 30;
 //Fonts
 const double FONT_SIZE_REGULAR_12=12.0;
 const double FONT_SIZE_REGULAR_15=15.0;
-const double FONT_SIZE_REGULAR_20=20.0;
+const double  SIZE_20=0.04;
 const double FONT_SIZE_HEADING_30=30.0;
 const double FONT_SIZE_HEADING_40=40.0;
 

@@ -26,7 +26,6 @@ class _RegisterFormState extends State<RegisterForm> {
     return state.isFormValid && isPopulated && !state.isSubmitting;
   }
   bool passwordVisible = true;
-  TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   final emailFocus = FocusNode();
   final passwordFocus = FocusNode();
 
@@ -40,6 +39,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
   @override
   Widget build(BuildContext context) {
+    TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: MediaQuery.of(context).size.width*SIZE_20);
     return BlocListener(
       bloc: _registerBloc,
       listener: (BuildContext context, RegisterState state) {
@@ -122,6 +122,7 @@ class _RegisterFormState extends State<RegisterForm> {
                                     top: PADDING_REGULAR_10,
                                     bottom: PADDING_REGULAR_10),
                                 child: TextFormField(
+
                                   controller: _emailController,
                                   autofocus: false,
                                   focusNode: emailFocus,
