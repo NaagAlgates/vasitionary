@@ -10,7 +10,7 @@ class SplashScreen extends StatelessWidget {
           //color: COLOR_APPBAR,
           image: new DecorationImage(
             colorFilter: new ColorFilter.mode(
-                Colors.black.withOpacity(0.3), BlendMode.multiply),
+                Colors.black.withOpacity(0.29), BlendMode.multiply),
             image: new AssetImage("assets/images/app_background.jpg"),
             fit: BoxFit.cover,
           ),
