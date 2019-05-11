@@ -72,3 +72,7 @@
 #Google Auth JSON
 **/android/app/google-services.json
 **/ios/Runner/GoogleService-Info.plist
+
+#Keys
+**/android/app/key.jks
+**/android/key.properties
