@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vasitionary/bloc/login/login.dart';
 import 'package:vasitionary/model/user_repository.dart';
 
-import 'login_form.dart';
+import 'package:vasitionary/ui/login/login_form.dart';
 
 class LoginScreen extends StatefulWidget {
   final UserRepository _userRepository;

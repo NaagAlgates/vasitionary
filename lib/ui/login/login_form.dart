@@ -10,9 +10,10 @@ import 'package:vasitionary/helper/constants.dart';
 import 'package:vasitionary/model/user_repository.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 
-import 'login_create_account.dart';
-import 'google_login_button.dart';
-import 'login_button.dart';
+import 'package:vasitionary/ui/login/login_create_account.dart';
+import 'package:vasitionary/ui/login/login_button.dart';
+
+import '../google_login_button.dart';
 
 class LoginForm extends StatefulWidget {
   final UserRepository _userRepository;

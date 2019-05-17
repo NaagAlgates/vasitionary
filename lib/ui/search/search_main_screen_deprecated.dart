@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:vasitionary/helper/constants.dart';
 import 'package:vasitionary/model/dictionary_word_list.dart';
 
-import 'homepage_card_widget.dart';
+import '../homepage_card_widget.dart';
+
 
 bool isDataLoading = false;
 class SearchHomeScreen extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:vasitionary/helper/constants.dart';
-import 'package:vasitionary/ui/search_main_screen.dart';
+import 'package:vasitionary/ui/search/search_screen.dart';
 import 'package:vasitionary/ui/secondpage.dart';
 import 'package:vasitionary/ui/settings.dart';
 
@@ -41,6 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               //preferredSize: prefSize, // here the desired height
               //child:
               AppBar(
+                elevation: 0.0,
             title: Text(APPLICATION_NAME),
             backgroundColor: APPBAR_BACKGROUND_COLOR,
           ), //),

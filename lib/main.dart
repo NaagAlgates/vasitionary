@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:vasitionary/ui/homescreen.dart';
-import 'package:vasitionary/ui/login_screen.dart';
+import 'package:vasitionary/ui/login/login_screen.dart';
 import 'package:vasitionary/ui/splashscreen.dart';
 import 'bloc/authentication/auth.dart';
 import 'bloc/authentication/auth_delegate.dart';
