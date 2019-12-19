@@ -50,12 +50,12 @@ class _MyAppState extends State<MyApp> {
           builder: (BuildContext context, AuthenticationState state) {
             if (state is Uninitialized) {
               return SplashScreen();
-            }
-            if (state is Authenticated) {
+            } else if (state is Authenticated) {
               return HomeScreen(userEmail: state.displayName,userDpUrl: state.displayImage, userName: state.displayUserName,);
-            }
-            if (state is Unauthenticated) {
+            } else if (state is Unauthenticated) {
               return LoginScreen(userRepository: _userRepository);
+            }else{
+              return Container();
             }
           },
         ),

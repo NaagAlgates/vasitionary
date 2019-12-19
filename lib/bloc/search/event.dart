@@ -15,15 +15,25 @@ class TextChanged extends SearchEvent {
   String toString() => 'EmailChanged { email :$text }';
 }
 
-class Submitted extends SearchEvent {
+class Selected extends SearchEvent {
   final String text;
 
-  Submitted({@required this.text})
+  Selected({@required this.text})
       : super([text]);
 
   @override
   String toString() {
-    return 'Submitted { Search Text: $text }';
+    return 'Selected { Search Text: $text }';
+  }
+}
+
+class Submitting extends SearchEvent {
+
+  Submitting();
+
+  @override
+  String toString() {
+    return 'Selected { Search Text: }';
   }
 }
 
@@ -34,5 +44,15 @@ class SearchReset extends SearchEvent {
   @override
   String toString() {
     return 'Reset Success';
+  }
+}
+
+class LoadData extends SearchEvent {
+
+  LoadData();
+
+  @override
+  String toString() {
+    return 'Loading Data';
   }
 }
