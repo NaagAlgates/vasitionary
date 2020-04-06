@@ -26,3 +26,7 @@ You can also see the word of the day. You can hear it for knowing the right pron
 <img width="452" alt="Screen Shot 2019-04-22 at 8 56 30 pm" src="https://user-images.githubusercontent.com/14884575/56497657-dc9bfa00-6541-11e9-8b8f-14ff0a76fd10.png">
 
 You can also rate the app and share it with your friends.
+
+
+Dictionary credits: TVU Tamil Dictionary
+Thanks to [Murasu](https://github.com/murasu) for highlighting.
